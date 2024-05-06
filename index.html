@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ML Model Prediction</title>
+    <style>
+      body{
+        background-image: url(https://wallpaperbat.com/img/560417-background-image-for-student-portal-1920x1080-download-hd-wallpaper-wallpapertip.jpg);
+        text-align: center;
+        background-size: cover;
+    }
+    h1{
+        color:#100a07;
+        font-size: xx-large;
+    }
+    input{
+        background-color:#87d78b;
+        font-size:larger;
+        color: black;
+        border-color:rgb(1, 8, 8);
+        border-radius: 10%;
+    }
+    button{
+        width: 250px;
+        height: 45px;    
+        font-size: 20px; 
+        padding: 10px;
+        background-color: #0882a3;
+        font-weight:bolder;
+        color: rgb(4, 8, 8);
+        border-radius: 50%;
+    }
+    label{
+        color: #13e8f7;
+        font-size: larger;
+    }
+    .text-warning{
+        color: rgb(3, 172, 59);
+        font-size: 2rem;
+    }
+    input:hover{
+      box-shadow: 6px 6px 14px rgb(254, 255, 255);
+      transition: 1s;
+      font-size: 1.35rem;
+    }
+    button:hover{
+      box-shadow: 6px 6px 14px rgb(253, 253, 253);
+      transition: 1s;
+    }
+    </style>
+  </head>
+  <body>
+    <h1>PASS/FAIL(Using Machine Learning)</h1><br><br>
+    <form action="/predict" method="POST">
+      <label for="input1"><h3>Enter Study hours per day:</h3></label>
+      <input type="text" id="input1" name="input1"><br><br><br>
+      <label for="input2"><h3>Enter Previous exam score:</h3></label>
+      <input type="text" id="input2" name="input2"><br><br><br><br>
+      <button class = 'btn btn-success'>Predict</button>
+    </form>
+<br><br>
+    <div class = 'row'>
+      {% if prediction %}
+      <h2 class = 'text-warning'>The probability to pass the test is {{prediction}}<br><br></h2>
+      {% endif %}
+    </div>
+  </body>
+</html>
